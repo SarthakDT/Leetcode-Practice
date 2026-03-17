@@ -1,10 +1,15 @@
 class Solution:
     def findKthPositive(self, arr: List[int], k: int) -> int:
-        arr_set = set(arr)
-        missing = []
+        num=1
+        count=0
 
-        for i in range(1, 2001):
-            if i not in arr_set:
-                missing.append(i)
+        arr_set=set(arr)
 
-        return missing[k-1]
+        while True:
+            if num not in arr_set:
+                count+=1
+            
+            if count==k:
+                return num
+            
+            num+=1
